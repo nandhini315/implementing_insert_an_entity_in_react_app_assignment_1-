@@ -1,21 +1,33 @@
 // src/components/BookCard.jsx
+import React from 'react';
+import "./BookCard.css"; 
 
-import React from "react";
-import "./BookCard.css"; // Import the CSS for styling
-
-const BookCard = ({ book }) => {
-  const { title, author, description, coverImage } = book;
-
+const BookCard = ({ title, author, description, cover }) => {
   return (
-    <div className="book-card">
-      <img src={coverImage} alt={`${title} cover`} className="book-cover" />
-      <div className="book-details">
-        <h2 className="book-title">{title}</h2>
-        <h3 className="book-author">by {author}</h3>
-        <p className="book-description">{description}</p>
-      </div>
+    <div style={styles.card}>
+      <img src={cover} alt={title} style={styles.image} />
+      <h3>{title}</h3>
+      <p><strong>Author:</strong> {author}</p>
+      <p>{description}</p>
     </div>
   );
+};
+
+const styles = {
+  card: {
+    border: '1px solid #ccc',
+    padding: '1rem',
+    borderRadius: '8px',
+    margin: '1rem',
+    width: '250px',
+    backgroundColor: '#f9f9f9',
+  },
+  image: {
+    width: '100%',
+    height: '150px',
+    objectFit: 'cover',
+    marginBottom: '1rem',
+  },
 };
 
 export default BookCard;

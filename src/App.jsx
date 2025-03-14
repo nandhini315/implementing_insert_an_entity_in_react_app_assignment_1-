@@ -1,15 +1,16 @@
-// src/App.jsx
-
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import AddBook from './components/AddBook';
 import Home from './Home';
-import './App.css'; // Import global styles
+import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/add-book" element={<AddBook />} />
+    </Routes>
   );
-}
+};
 
 export default App;
